@@ -12,7 +12,7 @@ class Program
             }
             else
             {
-                Console.WriteLine(loop);
+                Console.Write("{0:D2}\n", loop);
             }
         }
     }
