@@ -18,6 +18,7 @@ class Array
 
         for (int loop = 0; loop < size; loop++)
         {
+            newArray[loop] = loop;
             Console.Write(loop);
             if (loop != size - 1)
             {
