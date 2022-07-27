@@ -6,9 +6,7 @@ class Dictionary
     // prints a dictionary by ordered keys.
     public static void PrintSorted(Dictionary<string, string> myDict)
     {
-        var sorted = myDict.OrderBy(x => x.Key);
-
-        foreach (KeyValuePair<string, string> pair in sorted)
+        foreach (KeyValuePair<string, string> pair in myDict.OrderBy(x => x.Key))
             Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
     }
 }
