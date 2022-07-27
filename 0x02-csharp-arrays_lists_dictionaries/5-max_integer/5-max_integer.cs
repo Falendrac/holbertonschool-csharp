@@ -8,7 +8,7 @@ class List
     // Return: -1 if the list is empty, otherwise the biggest integer
     public static int MaxInteger(List<int> myList)
     {
-        if (myList == null)
+        if (myList == null || myList.Count == 0)
         {
             Console.WriteLine("List is empty");
             return -1;
