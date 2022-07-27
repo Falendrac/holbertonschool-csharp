@@ -7,7 +7,7 @@ class Dictionary
     // returns the key with the biggest integer value in a given dictionary.
     public static string BestScore(Dictionary<string, int> myList)
     {
-        if (myList == null)
+        if (myList == null || myList.Count == 0)
         {
             return "None";
         }
