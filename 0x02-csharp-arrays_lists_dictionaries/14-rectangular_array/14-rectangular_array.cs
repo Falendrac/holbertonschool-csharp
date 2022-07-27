@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 class Program
 {
+    // Create and print a two dimensional array.
     static void Main(string[] args)
     {
         int[,] grid = new int[5, 5];
