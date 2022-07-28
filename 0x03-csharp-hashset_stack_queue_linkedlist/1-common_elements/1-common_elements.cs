@@ -21,6 +21,8 @@ class List
             }
         }
 
-        return newSortedList.Sort();
+        newSortedList.Sort();
+
+        return newSortedList;
     }
 }
