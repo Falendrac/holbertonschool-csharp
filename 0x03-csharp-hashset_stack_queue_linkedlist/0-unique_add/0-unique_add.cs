@@ -15,8 +15,7 @@ class List
                 tmp.Add(element);
         }
 
-        foreach (var element in tmp)
-            sum += element;
+        sum = tmp.Sum(x => Convert.ToInt32(x));
 
         return sum;
     }
