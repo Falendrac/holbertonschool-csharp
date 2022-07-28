@@ -6,8 +6,8 @@ class MyStack
     public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
         int countItems = 0, index = 0;
-        string topItem = aStack.Peek();
-        bool findSearch = false;
+        string topItem = "";
+        bool findSearch = false, firstItem = false;
 
         foreach (string element in aStack)
         {
@@ -17,6 +17,12 @@ class MyStack
             {
                 findSearch = true;
                 index = countItems;
+            }
+
+            if (!firstItem)
+            {
+                topItem = element;
+                firstItem = true;
             }
         }
 
