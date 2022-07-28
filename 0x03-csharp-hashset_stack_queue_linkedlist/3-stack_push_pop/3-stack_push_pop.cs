@@ -5,7 +5,7 @@ class MyStack
 {
     public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
-        int countItems = 0;
+        int countItems = aStack.Count;
 
         Console.WriteLine("Number of items: {0}", countItems);
 
@@ -14,7 +14,7 @@ class MyStack
         else
             Console.WriteLine("Top item: {0}", aStack.Peek());
 
-        if (aStack.Contains(search))
+        if (true)
         {
             Console.WriteLine("Stack contains {0}: {1}", search, aStack.Contains(search));
 
