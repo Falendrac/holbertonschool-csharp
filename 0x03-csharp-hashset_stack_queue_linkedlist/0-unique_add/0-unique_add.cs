@@ -6,6 +6,12 @@ class List
     // adds all unique integers in a list.
     public static int Sum(List<int> myList)
     {
-        return myList.Distinct().Sum(x => Convert.ToInt32(x));
+        List<int> tmp = myList.Distinct().ToList();
+        int sum = 0;
+
+        foreach (var element in tmp)
+            sum += element;
+
+        return sum;
     }
 }
