@@ -5,7 +5,16 @@ class MyStack
 {
     public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
-        int countItems = aStack.Count;
+        int countItems = 0;
+        bool findSearch = false;
+
+        foreach (var element in aStack)
+        {
+            countItems++;
+
+            if (element == search)
+                findSearch = true;
+        }
 
         Console.WriteLine("Number of items: {0}", countItems);
 
@@ -14,9 +23,9 @@ class MyStack
         else
             Console.WriteLine("Top item: {0}", aStack.Peek());
         
-        Console.WriteLine("Stack contains {0}: {1}", search, aStack.Contains(search));
+        Console.WriteLine("Stack contains {0}: {1}", search, findSearch);
 
-        if (aStack.Contains(search))
+        if (findSearch)
         {
             while (aStack.Peek() != search)
                 aStack.Pop();
