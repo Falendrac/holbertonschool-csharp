@@ -12,25 +12,25 @@ class List
         else
             maxLength = list2.Count;
 
-        List<int> newSortedList = new List<int>();
+        List<int> newList = new List<int>();
 
         for (int loop = 0; loop < maxLength; loop++)
         {
             if (loop < list1.Count)
             {
                 if (!list2.Contains(list1[loop]))
-                    newSortedList.Add(list1[loop]);
+                    newList.Add(list1[loop]);
             }
 
             if (loop < list2.Count)
             {
                 if (!list1.Contains(list2[loop]))
-                    newSortedList.Add(list2[loop]);
+                    newList.Add(list2[loop]);
             }
         }
         
-        newSortedList.Sort();
+        newList.Sort();
 
-        return newSortedList;
+        return newList;
     }
 }
