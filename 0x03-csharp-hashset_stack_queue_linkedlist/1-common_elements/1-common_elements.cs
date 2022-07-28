@@ -11,18 +11,18 @@ class List
             return list1;
         }
 
-        List<int> newSortedList = new List<int>();
+        List<int> newList = new List<int>();
 
         for (int loop = 0; loop < list1.Count; loop++)
         {
             if (list2.Contains(list1[loop]))
             {
-                newSortedList.Add(list1[loop]);
+                newList.Add(list1[loop]);
             }
         }
 
-        newSortedList.Sort();
+        newList.Sort();
 
-        return newSortedList;
+        return newList;
     }
 }
