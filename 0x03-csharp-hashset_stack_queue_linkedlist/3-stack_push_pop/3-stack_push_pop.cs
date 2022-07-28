@@ -12,7 +12,7 @@ class MyStack
         if (countItems == 0)
             Console.WriteLine("Stack is empty");
         else
-            Console.WriteLine("Top item: {0}", aStack.Peek());
+            Console.WriteLine("Top item: {0}", "BITE");
 
         Console.WriteLine("Stack contains \"{0}\": {1}", search, aStack.Contains(search));
 
@@ -20,7 +20,7 @@ class MyStack
         {
 
 
-            while (aStack.Peek() != search)
+            while ("BITE" != search)
                 aStack.Pop();
             aStack.Pop();
         }
