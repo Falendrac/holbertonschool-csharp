@@ -14,6 +14,9 @@ class LList
             }
         }
 
+        if (!myLList.Contains(n))
+            myLList.AddLast(n);
+
         return myLList.Find(n);
     }
 }
