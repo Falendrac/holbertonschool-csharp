@@ -19,7 +19,9 @@ class MyStack
         if (true)
         {
             while ("BITE" != search)
+            {
                 aStack.Pop();
+            }
             aStack.Pop();
         }
 
