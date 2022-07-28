@@ -37,11 +37,11 @@ class MyQueue
         Console.WriteLine("Number of items: {0}", countItems);
 
         if (countItems == 0)
-            Console.WriteLine("Stack is empty");
+            Console.WriteLine("Queue is empty");
         else
-            Console.WriteLine("Top item: {0}", topItem);
+            Console.WriteLine("First item: {0}", topItem);
 
-        Console.WriteLine("Stack contains \"{0}\": {1}", search, findSearch);
+        Console.WriteLine("Queue contains \"{0}\": {1}", search, findSearch);
 
         return aQueue;
     }
