@@ -12,23 +12,26 @@ namespace Text
         public static int UniqueChar(string s)
         {
             int occur;
+            int idx = 0;
 
             if (s == null || s.Length == 0)
                 return (-1);
 
-            for (int loop1 = 0; loop1 < s.Length; loop1++)
+            string newS = new String(s.Distinct().ToArray());
+
+            for (int loop1 = 0; loop1 < newS.Length; loop1++)
             {
                 occur = 0;
-                for (int loop2 = loop1 + 1; loop2 < s.Length; loop2++)
+                for (int loop2 = 0; loop2 < s.Length; loop2++)
                 {
-                    if (s[loop1] == s[loop2])
+                    if (newS[loop1] == s[loop2])
                     {
                         occur++;
-                        loop1 = loop2;
+                        idx = loop2;
                     }
                 }
-                if (occur == 0)
-                    return loop1;
+                if (occur == 1)
+                    return idx;
             }
             return -1;
         }
