@@ -16,6 +16,6 @@ class VectorMath
         foreach (var element in vector)
             magnitude += Math.Pow(element, 2);
 
-        return Math.Round(Math.Sqrt(magnitude));
+        return Math.Round(Math.Sqrt(magnitude), 2);
     }
 }
