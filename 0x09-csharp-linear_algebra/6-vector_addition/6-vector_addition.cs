@@ -4,8 +4,8 @@
 class VectorMath
 {
     /// <summary>adds two vectors and returns the resulting vector</summary>
-    /// <param name="vector1">First vector to add<param>
-    /// <param name="vector2">"Second vector to add<param>
+    /// <param name="vector1">First vector to add</param>
+    /// <param name="vector2">"Second vector to add</param>
     /// <returns>
     /// If any vector is not a 2D or 3D vector, or if the vectors are not of the same size, return a vector containing -1
     /// Otherwise return the vector
