@@ -28,7 +28,7 @@ class MatrixMath
                 {
                     newMatrix[row, column] += matrix[row, index] * matrixRotation[column, index];
                 }
-                newMatrix[row, column] = Math.Round(newMatrix[row, column]);
+                newMatrix[row, column] = Math.Round(newMatrix[row, column], 2);
             }
         }
 
