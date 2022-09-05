@@ -15,9 +15,9 @@ class MatrixMath
         if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
             return new double[,] {{ -1 }};
 
-        double[,] newMatrix = new double[2, 2];
-        double[,] matrixRotation = new double[, ] {   {Math.Cos(angle), Math.Sin(angle)},
-                                                        {-1 * Math.Sin(angle), Math.Cos(angle)}
+        double[,] newMatrix = new double[matrix.GetLength(0), matrix.GetLength(1)];
+        double[,] matrixRotation = new double[2, 2] {   {Math.Cos(angle), -Math.Sin(angle)},
+                                                        {Math.Sin(angle), Math.Cos(angle)}
                                                     };
 
         for (int row = 0; row < matrix.GetLength(0); row++)
@@ -26,7 +26,7 @@ class MatrixMath
             {
                 for (int index = 0; index < matrix.GetLength(0); index++)
                 {
-                    newMatrix[row, column] += matrix[row, index] * matrixRotation[index, column];
+                    newMatrix[row, column] += matrix[row, index] * matrixRotation[column, index];
                 }
                 newMatrix[row, column] = Math.Round(newMatrix[row, column]);
             }
