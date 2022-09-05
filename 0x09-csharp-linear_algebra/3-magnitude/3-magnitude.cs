@@ -5,7 +5,7 @@ class VectorMath
 {
     /// <summary>calculates and returns the length of a given vector.</summary>
     /// <param name="vector">The vector given we want to calculate<param>
-    /// <returns>The length of a given vector, return -1 if is not a 2D or 3D vector</summary>
+    /// <returns>The length of a given vector, return -1 if is not a 2D or 3D vector</returns>
     public static double Magnitude(double[] vector)
     {
         double magnitude = 0;
