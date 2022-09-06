@@ -16,6 +16,28 @@ class MatrixMath
             || matrix.GetLength(0) != matrix.GetLength(1))
             return (double) -1;
 
+        double determinant;
+
+        if (matrix.GetLength(0) == 2)
+            determinant = Determinant2D(matrix);
+        else
+            determinant = Determinant3D(matrix);
+
+        return determinant;
+    }
+
+    // Calculate the determinant for a 2D matrix
+    static double Determinant2D(double[,] matrix)
+    {
+        double determinant;
+
+        determinant = matrix[0, 0] * matrix[1, 1] - matrix[0,1] * matrix[1, 0];
+        return Math.Round(determinant, 2);
+    }
+
+    // Calculate the determinant for a 3D matrix
+    static double Determinant3D(double[,] matrix)
+    {
         double determinant = 0;
         double tmp = 1;
         int diag = 0;
