@@ -12,15 +12,20 @@ class MatrixMath
     /// </returns>
     public static double[,] Inverse2D(double[,] matrix)
     {
-        if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
+        if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2
+            || matrix[0, 0] * matrix[1, 1] - matrix[0,1] * matrix[1, 0] == 0)
             return new double[,] {{-1}};
 
-        double[,] newMatrix = new double[matrix.GetLength(0), matrix.GetLength(1)];
+        double[,] newMatrix = new double[,] {
+                                                {matrix[1, 1], -matrix[0, 1]},
+                                                {-matrix[1, 0], matrix[0, 0]}
+        };
+        double detNewMatrix = 1/(newMatrix[0, 0] * newMatrix[1, 1] - newMatrix[0,1] * newMatrix[1, 0]);
 
-        newMatrix[0, 0] = matrix[1, 1];
-        newMatrix[1, 1] = matrix[0, 0];
-        newMatrix[0, 1] = -matrix[1, 0];
-        newMatrix[1, 0] = -matrix[0, 1];
+        newMatrix[0, 0] = Math.Round(detNewMatrix*newMatrix[0,0], 2);
+        newMatrix[1, 1] = Math.Round(detNewMatrix*newMatrix[1,1], 2);
+        newMatrix[0, 1] = Math.Round(detNewMatrix*newMatrix[0,1], 2);
+        newMatrix[1, 0] = Math.Round(detNewMatrix*newMatrix[1,0], 2);
 
         return newMatrix;
     }
