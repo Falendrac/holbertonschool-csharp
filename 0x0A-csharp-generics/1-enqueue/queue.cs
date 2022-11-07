@@ -3,33 +3,25 @@
 /// <summary>Do you want to see my queue ?</summary>
 class Queue<T>
 {
+    /// <summary>Get and Set the head of a list</summary>
+    public Node head { get; set; }
+    /// <summary>Get and set the tail of a list</summary>
+    public Node tail { get; set; }
     private int count;
 
-    /// <summary>Gets or sets the head node.</summary>
-    public Node head { get; set; }
-
-    /// <summary>Gets or sets the tail node.</summary>
-    public Node tail { get; set;}
-
-
-    /// <summary>
-    /// Represent some generics nodes.
-    /// </summary>
+    /// <summary>Represent the node of a list</summary>
     public class Node
     {
-        /// <summary>Gets or sets the next node.</summary>
+        /// <summary>Get and Set the value of a node</summary>
+        public T value { get; set; }
+        /// <summary>Get and Set the next node of this node</summary>
         public Node next { get; set; }
 
-        /// <summary>Gets or sets the node value.</summary>
-        public T value { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Node"/> class.
-        /// </summary>
-        /// <param name="TValue">node value</param>
-        public Node(T TValue)
+        /// <summary>Constructor of the node</summary>
+        /// <param name="newValue">Value of the node</param>
+        public Node(T newValue)
         {
-            this.value = TValue;
+            this.value = newValue;
         }
     }
 
@@ -40,20 +32,22 @@ class Queue<T>
         return typeof(T).ToString();
     }
 
-    /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
-    /// <param name="value">The value of the new node<param>
-    public void Enqueue(T value)
+    /// <summary>
+    /// Creates a new Node and adds it to the end of the queue.
+    /// </summary>
+    /// <param name="TValue">Generic value of the node</param>
+    public void Enqueue(T TValue)
     {
-        Node newNode = new Node(value);
+        Node temp = new Node(TValue);
 
         if (count == 0)
         {
-            head = newNode;
-            tail = newNode;
+            tail = temp;
+            head = temp;
         }
         else
         {
-            tail.next = newNode;
+            tail.next = temp;
         }
 
         this.count += 1;
