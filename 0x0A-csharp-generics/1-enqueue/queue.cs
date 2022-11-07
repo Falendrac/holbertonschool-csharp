@@ -4,12 +4,12 @@
 class Queue<T>
 {
     private int count;
-
-    /// <summary>Gets or sets the head node.</summary>
+    /// <summary>Get and Set the head of a list</summary>
     public Node head { get; set; }
+    /// <summary>Get and set the tail of a list</summary>
+    public Node tail { get; set; }
 
-    /// <summary>Gets or sets the tail node.</summary>
-    public Node tail { get; set;}
+
     /// <summary>Represent the node of a list</summary>
     public class Node
     {
@@ -33,22 +33,20 @@ class Queue<T>
         return typeof(T).ToString();
     }
 
-    /// <summary>
-    /// Creates a new Node and adds it to the end of the queue.
-    /// </summary>
-    /// <param name="TValue">Generic value of the node</param>
-    public void Enqueue(T TValue)
+    /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
+    /// <param name="Tvalue">The value of the new node<param>
+    public void Enqueue(T Tvalue)
     {
-        Node temp = new Node(TValue);
+        Node newNode = new Node(Tvalue);
 
         if (count == 0)
         {
-            tail = temp;
-            head = temp;
+            head = newNode;
+            tail = newNode;
         }
         else
         {
-            tail.next = temp;
+            tail.next = newNode;
         }
 
         this.count += 1;
