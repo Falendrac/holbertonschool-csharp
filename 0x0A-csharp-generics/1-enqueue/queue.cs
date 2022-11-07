@@ -33,10 +33,10 @@ class Queue<T>
     }
 
     /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
-    /// <param name="value">The value of the new node<param>
-    public void Enqueue(T value)
+    /// <param name="Tvalue">The value of the new node<param>
+    public void Enqueue(T Tvalue)
     {
-        Node newNode = new Node(value);
+        Node newNode = new Node(Tvalue);
 
         if (count == 0)
         {
