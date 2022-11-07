@@ -7,25 +7,21 @@ class Queue<T>
     public Node head { get; set; }
     /// <summary>Get and set the tail of a list</summary>
     public Node tail { get; set; }
-    /// <summary>The count of the node in the list</summary>
     private int count;
 
     /// <summary>Represent the node of a list</summary>
     public class Node
     {
-        /// <summary>Gets or sets the next node.</summary>
+        /// <summary>Get and Set the value of a node</summary>
+        public T value { get; set; }
+        /// <summary>Get and Set the next node of this node</summary>
         public Node next { get; set; }
 
-        /// <summary>Gets or sets the node value.</summary>
-        public T value { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Node"/> class.
-        /// </summary>
-        /// <param name="TValue">node value</param>
-        public Node(T TValue)
+        /// <summary>Constructor of the node</summary>
+        /// <param name="newValue">Value of the node</param>
+        public Node(T newValue)
         {
-            this.value = TValue;
+            this.value = newValue;
         }
     }
 
