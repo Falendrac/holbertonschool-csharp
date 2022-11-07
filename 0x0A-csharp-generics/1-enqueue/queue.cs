@@ -13,16 +13,19 @@ class Queue<T>
     /// <summary>Represent the node of a list</summary>
     public class Node
     {
-        /// <summary>Get and Set the value of a node</summary>
-        public T value { get; set; }
-        /// <summary>Get and Set the next node of this node</summary>
+        /// <summary>Gets or sets the next node.</summary>
         public Node next { get; set; }
 
-        /// <summary>Constructor of the node</summary>
-        /// <param name="newValue">Value of the node</param>
-        public Node(T newValue)
+        /// <summary>Gets or sets the node value.</summary>
+        public T value { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
+        /// <param name="TValue">node value</param>
+        public Node(T TValue)
         {
-            this.value = newValue;
+            this.value = TValue;
         }
     }
 
