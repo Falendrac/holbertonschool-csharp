@@ -32,22 +32,20 @@ class Queue<T>
         return typeof(T).ToString();
     }
 
-    /// <summary>
-    /// Creates a new Node and adds it to the end of the queue.
-    /// </summary>
-    /// <param name="TValue">Generic value of the node</param>
-    public void Enqueue(T TValue)
+    /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
+    /// <param name="value">The value of the new node<param>
+    public void Enqueue(T value)
     {
-        Node temp = new Node(TValue);
+        Node newNode = new Node(value);
 
         if (count == 0)
         {
-            tail = temp;
-            head = temp;
+            head = newNode;
+            tail = newNode;
         }
         else
         {
-            tail.next = temp;
+            tail.next = newNode;
         }
 
         this.count += 1;
