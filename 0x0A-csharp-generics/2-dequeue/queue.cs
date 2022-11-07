@@ -62,14 +62,14 @@ class Queue<T>
         if (count == 0)
         {
             Console.WriteLine("Queue is empty");
+            // default value
             return default(T);
         }
 
-        T tmp = head.value;
+        T headValue = head.value;
         head = head.next;
         this.count -= 1;
-
-        return tmp;
+        return headValue;
     }
 
     /// <summary>The current count of nodes in the list</summary>
