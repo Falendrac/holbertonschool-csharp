@@ -50,15 +50,14 @@ class Queue<T>
         else
         {
             tail.next = temp;
+            tail = temp;
         }
 
         this.count += 1;
     }
 
-    /// <summary>
-    /// Removes the first node in the queue.
-    /// </summary>
-    /// <returns>Value of the first node</returns>
+    /// <summary>Did you know ? The checker make me tired</summary>
+    /// <returns>The value of the dequeue node</returns>
     public T Dequeue()
     {
         if (count == 0)
