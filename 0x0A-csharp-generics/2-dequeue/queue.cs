@@ -65,11 +65,11 @@ class Queue<T>
             return default(T);
         }
 
-        Node tmp = this.head;
-        this.head = this.head.next;
+        T tmp = head.value;
+        head = head.next;
         this.count -= 1;
 
-        return tmp.value;
+        return tmp;
     }
 
     /// <summary>The current count of nodes in the list</summary>
