@@ -55,21 +55,23 @@ class Queue<T>
         this.count += 1;
     }
 
-    /// <summary>Did you know ? The checker make me tired</summary>
-    /// <returns>The value of the dequeue node</returns>
+    /// <summary>
+    /// Removes the first node in the queue.
+    /// </summary>
+    /// <returns>Value of the first node</returns>
     public T Dequeue()
     {
         if (count == 0)
         {
             Console.WriteLine("Queue is empty");
-            // default value
             return default(T);
         }
 
-        T headValue = head.value;
+        T tmp = head.value;
         head = head.next;
         this.count -= 1;
-        return headValue;
+
+        return tmp;
     }
 
     /// <summary>The current count of nodes in the list</summary>
