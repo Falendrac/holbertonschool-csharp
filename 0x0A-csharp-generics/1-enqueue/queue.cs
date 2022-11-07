@@ -4,10 +4,11 @@
 class Queue<T>
 {
     private int count;
-    /// <summary>Get and Set the head of a list</summary>
+    /// <summary>Gets or sets the head node.</summary>
     public Node head { get; set; }
-    /// <summary>Get and set the tail of a list</summary>
-    public Node tail { get; set; }
+
+    /// <summary>Gets or sets the tail node.</summary>
+    public Node tail { get; set;}
 
 
     /// <summary>Represent the node of a list</summary>
