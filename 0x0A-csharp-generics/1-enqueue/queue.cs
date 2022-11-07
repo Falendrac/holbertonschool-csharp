@@ -8,7 +8,7 @@ class Queue<T>
     /// <summary>Get and set the tail of a list</summary>
     public Node tail { get; set; }
     /// <summary>The count of the node in the list</summary>
-    public int count;
+    private int count;
 
     /// <summary>Check the type of the queue object</summary>
     /// <returns>The type of the queue object</returns>
