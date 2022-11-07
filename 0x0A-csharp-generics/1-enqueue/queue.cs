@@ -10,13 +10,6 @@ class Queue<T>
     /// <summary>The count of the node in the list</summary>
     private int count;
 
-    /// <summary>Check the type of the queue object</summary>
-    /// <returns>The type of the queue object</returns>
-    public string CheckType()
-    {
-        return typeof(T).ToString();
-    }
-
     /// <summary>Represent the node of a list</summary>
     public class Node
     {
@@ -33,13 +26,20 @@ class Queue<T>
         }
     }
 
+    /// <summary>Check the type of the queue object</summary>
+    /// <returns>The type of the queue object</returns>
+    public string CheckType()
+    {
+        return typeof(T).ToString();
+    }
+
     /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
     /// <param name="value">The value of the new node<param>
     public void Enqueue(T value)
     {
         Node newNode = new Node(value);
 
-        if (this.count == 0)
+        if (count == 0)
         {
             head = newNode;
             tail = newNode;
