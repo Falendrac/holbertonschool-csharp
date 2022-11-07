@@ -47,6 +47,7 @@ class Queue<T>
         else
         {
             tail.next = newNode;
+            tail = newNode;
         }
 
         this.count += 1;
