@@ -1,74 +1,59 @@
 ﻿using System;
 
-/// <summary>
-/// Generic Queue class
-/// </summary>
+/// <summary>Do you want to see my queue ?</summary>
 class Queue<T>
 {
+    /// <summary>Get and Set the head of a list</summary>
+    public Node head { get; set; }
+    /// <summary>Get and set the tail of a list</summary>
+    public Node tail { get; set; }
+    /// <summary>The count of the node in the list</summary>
     private int count;
 
-    /// <summary>Gets or sets the head node.</summary>
-    public Node head { get; set; }
-
-    /// <summary>Gets or sets the tail node.</summary>
-    public Node tail { get; set;}
-
-
-    /// <summary>
-    /// Represent some generics nodes.
-    /// </summary>
+    /// <summary>Represent the node of a list</summary>
     public class Node
     {
-        /// <summary>Gets or sets the next node.</summary>
+        /// <summary>Get and Set the value of a node</summary>
+        public T value { get; set; }
+        /// <summary>Get and Set the next node of this node</summary>
         public Node next { get; set; }
 
-        /// <summary>Gets or sets the node value.</summary>
-        public T value { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Node"/> class.
-        /// </summary>
-        /// <param name="TValue">node value</param>
-        public Node(T TValue)
+        /// <summary>Constructor of the node</summary>
+        /// <param name="newValue">Value of the node</param>
+        public Node(T newValue)
         {
-            this.value = TValue;
+            this.value = newValue;
         }
     }
 
-    /// <summary>
-    /// Check type of T.
-    /// </summary>
-    /// <returns>Queue's type</returns>
+    /// <summary>Check the type of the queue object</summary>
+    /// <returns>The type of the queue object</returns>
     public string CheckType()
     {
         return typeof(T).ToString();
     }
 
-    /// <summary>
-    /// Creates a new Node and adds it to the end of the queue.
-    /// </summary>
-    /// <param name="TValue">Generic value of the node</param>
-    public void Enqueue(T TValue)
+    /// <summary>Creates a new Node and adds it to the end of the queue.</summary>
+    /// <param name="value">The value of the new node<param>
+    public void Enqueue(T value)
     {
-        Node temp = new Node(TValue);
+        Node newNode = new Node(value);
 
         if (count == 0)
         {
-            tail = temp;
-            head = temp;
+            head = newNode;
+            tail = newNode;
         }
         else
         {
-            tail.next = temp;
+            tail.next = newNode;
         }
 
         this.count += 1;
     }
 
-    /// <summary>
-    /// Count the number of nodes.
-    /// </summary>
-    /// <returns>Number of nodes</returns>
+    /// <summary>The current count of nodes in the list</summary>
+    /// <returns>Return a integer count of nodes in the list</returns>
     public int Count()
     {
         return this.count;
