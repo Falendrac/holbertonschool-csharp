@@ -100,9 +100,9 @@ class Decoration: Base, IInteractive, IBreakable
     {
         if (this.durability <= 0)
             Console.WriteLine($"The {this.name} has been broken.");
-        else if (this.isQuestItem == true)
+        else if (this.isQuestItem)
             Console.WriteLine($"You look at the {this.name}. There's a key inside.");
-        else
+        else if (!this.isQuestItem)
             Console.WriteLine($"You look at the {this.name}. Not much to see here.");
     }
 
