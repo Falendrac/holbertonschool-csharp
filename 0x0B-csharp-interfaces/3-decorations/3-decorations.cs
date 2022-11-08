@@ -68,19 +68,17 @@ class Door: Base, IInteractive
 }
 
 /// <summary>
-/// Decoration class.
+/// Decoration class, that define what's a decoration
 /// </summary>
-class Decoration : Base, IInteractive, IBreakable
+class Decoration: Base, IInteractive, IBreakable
 {
     public bool isQuestItem;
     public int durability { get; set; }
 
-    /// <summary>
-    /// Initializes a new instance of <see cref="Decoration"/> class.
-    /// </summary>
-    /// <param name="name">Name of the item.</param>
-    /// <param name="durability">Durability of the item.</param>
-    /// <param name="isQuestItem"></param>
+    /// <summary>Constructor for the <see cref="Decoration"/></summary>
+    /// <param name="name">Name of the decoration, default is "Decoration"</param>
+    /// <param name="durability">The durability of the object, default is 1. Can't be lees or equal to 0</param>
+    /// <param name="isQuestItem">Set if the decoration is a QuestItem, default is false</param>
     public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
         this.name = name;
@@ -92,8 +90,8 @@ class Decoration : Base, IInteractive, IBreakable
     }
 
     /// <summary>
-    /// Interact function.
-    /// </summary>
+    /// Interact with the decoration if there is a quest item or not, and if the item is broken
+    /// <summary>
     public void Interact()
     {
         if (this.durability <= 0)
@@ -105,11 +103,11 @@ class Decoration : Base, IInteractive, IBreakable
     }
 
     /// <summary>
-    /// Break function.
+    /// Hit the decoration until is broken
     /// </summary>
     public void Break()
     {
-        this.durability -= 1;
+        this.durability--;
 
         if (this.durability > 0)
             Console.WriteLine($"You hit the {this.name}. It cracks.");
