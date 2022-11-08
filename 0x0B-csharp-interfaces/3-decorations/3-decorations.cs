@@ -110,7 +110,7 @@ class Decoration: Base, IInteractive, IBreakable
     /// </summary>
     public void Break()
     {
-        this.durability--;
+        this.durability -= 1;
 
         if (this.durability > 0)
             Console.WriteLine($"You hit the {this.name}. It cracks.");
