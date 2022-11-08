@@ -82,14 +82,14 @@ class Decoration: Base, IInteractive, IBreakable
     /// <param name="isQuestItem">Set if the decoration is a QuestItem, default is false</param>
     public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
+        this.name = name;
+        this.durability = durability;
+        this.isQuestItem = isQuestItem;
+
         if (durability <= 0)
         {
             throw new Exception("Durability must be greater than 0");
         }
-
-        this.name = name;
-        this.durability = durability;
-        this.isQuestItem = isQuestItem;
     }
 
     /// <summary>
