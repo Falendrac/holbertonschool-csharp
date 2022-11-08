@@ -73,7 +73,7 @@ class Door: Base, IInteractive
 class Decoration: Base, IInteractive, IBreakable
 {
     /// <summary>Get or Set isQuestItem and see if the decoration is a quest item</summary>
-    public bool isQuestItem { get; set; }
+    public bool isQuestItem;
     /// <summary>Get or Set the durability of an item</summary>
     public int durability { get; set; }
 
@@ -111,7 +111,7 @@ class Decoration: Base, IInteractive, IBreakable
     /// </summary>
     public void Break()
     {
-        this.durability -= 1;
+        this.durability--;
 
         if (this.durability > 0)
             Console.WriteLine($"You hit the {this.name}. It cracks.");
