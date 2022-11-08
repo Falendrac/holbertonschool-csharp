@@ -1,65 +1,79 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 
 /// <summary>
-/// Base is a abstract class that can be define by user
+/// Base class.
 /// </summary>
 abstract class Base
 {
-    /// <summary>Get or set name</summary>
+    /// <summary>Gets or sets the name.</summary>
     public string name { get; set; }
 
-    /// <summary>String representation of the class</summary>
-    /// <return>{name} is a {Type of the object}</return>
+    /// <summary>
+    /// Override .ToString() method.
+    /// </summary>
+    /// <returns>Name and class type.</returns>
     public override string ToString()
     {
-        return String.Format("{0} is a {1}", name, this.GetType());
+        return $"{name} is a {this.GetType()}";
     }
 }
 
-/// <summary>IInteractive interface</summary>
+/// <summary>
+/// IInteractive interface.
+/// </summary>
 public interface IInteractive
 {
-    /// <summary>Interact method</summary>
+    /// <summary>
+    /// Interact method.
+    /// </summary>
     void Interact();
 }
 
-/// <summary>IBreakable interface</summary>
+/// <summary>
+/// IBreakable interface.
+/// </summary>
 public interface IBreakable
 {
-    /// <summary>Get or set durability</summary>
+    /// <summary>Gets or sets the durability.</summary>
     int durability { get; set; }
 
-    /// <summary>Break method</summary>
+    /// <summary>
+    /// Break method.
+    /// </summary>
     void Break();
 }
 
-/// <summary>ICollectable interface</summary>
+/// <summary>
+/// ICollectable interface.
+/// </summary>
 public interface ICollectable
 {
-    /// <summary>Get or set isCollected</summary>
+    /// <summary>Gets or sets isCollected.</summary>
     bool isCollected { get; set; }
 
-    /// <summary>Collect method</summary>
+    /// <summary>
+    /// Collect method.
+    /// </summary>
     void Collect();
 }
 
 /// <summary>
-/// Door class, that define what's a door
+/// Door class.
 /// </summary>
-class Door: Base, IInteractive
+class Door : Base, IInteractive
 {
     /// <summary>
-    /// Constructor of door assign a name for this
+    /// Initializes a new instance of the <see cref="Door"/> class.
     /// </summary>
-    /// <param name="name">Name wanted for door, the default value of the name is "Door"</param>
+    /// <param name="name">door</param>
     public Door(string name = "Door")
     {
         this.name = name;
     }
 
     /// <summary>
-    /// Interact with door. But it's locked.
+    /// Interact function.
     /// </summary>
     public void Interact()
     {
