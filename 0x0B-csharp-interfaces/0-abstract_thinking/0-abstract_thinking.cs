@@ -5,8 +5,8 @@
 /// </summary>
 abstract class Base
 {
-    /// <summary>The name of a person</summary>
-    public string name;
+    /// <summary>Get or set name</summary>
+    public string name { get; set; }
 
     /// <summary>String representation of the class</summary>
     /// <return>{name} is a {Type of the object}</return>
