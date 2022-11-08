@@ -68,19 +68,19 @@ class Door: Base, IInteractive
 }
 
 /// <summary>
-/// Decoration class, that define what's a decoration
+/// Decoration class.
 /// </summary>
-class Decoration: Base, IInteractive, IBreakable
+class Decoration : Base, IInteractive, IBreakable
 {
-    /// <summary>Get or Set isQuestItem and see if the decoration is a quest item</summary>
     public bool isQuestItem;
-    /// <summary>Get or Set the durability of an item</summary>
     public int durability { get; set; }
 
-    /// <summary>Constructor for the Decoration</summary>
-    /// <param name="name">Name of the decoration, default is "Decoration"</param>
-    /// <param name="durability">The durability of the object, default is 1. Can't be lees or equal to 0</param>
-    /// <param name="isQuestItem">Set if the decoration is a QuestItem, default is false</param>
+    /// <summary>
+    /// Initializes a new instance of <see cref="Decoration"/> class.
+    /// </summary>
+    /// <param name="name">Name of the item.</param>
+    /// <param name="durability">Durability of the item.</param>
+    /// <param name="isQuestItem"></param>
     public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
         this.name = name;
@@ -88,14 +88,12 @@ class Decoration: Base, IInteractive, IBreakable
         this.isQuestItem = isQuestItem;
 
         if (durability <= 0)
-        {
             throw new Exception("Durability must be greater than 0");
-        }
     }
 
     /// <summary>
-    /// Interact with the decoration if there is a quest item or not, and if the item is broken
-    /// <summary>
+    /// Interact function.
+    /// </summary>
     public void Interact()
     {
         if (this.durability <= 0)
@@ -107,11 +105,11 @@ class Decoration: Base, IInteractive, IBreakable
     }
 
     /// <summary>
-    /// Hit the decoration until is broken
+    /// Break function.
     /// </summary>
     public void Break()
     {
-        this.durability--;
+        this.durability -= 1;
 
         if (this.durability > 0)
             Console.WriteLine($"You hit the {this.name}. It cracks.");
