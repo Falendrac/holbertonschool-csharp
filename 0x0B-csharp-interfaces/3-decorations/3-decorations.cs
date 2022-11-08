@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 /// <summary>
 /// Base is a abstract class that can be define by user
