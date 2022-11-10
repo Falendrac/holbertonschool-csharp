@@ -87,40 +87,43 @@ class Player
     }
 
     /// <summary>
-    /// Apply the modifier to damage or heal
+    /// ApplyModifier method.
     /// </summary>
-    /// <param name="baseValue">The base value</>
-    /// <param name="modifier">The modifier apply to baseValue</param>
+    /// <param name="baseValue"></param>
+    /// <param name="modifier"></param>
+    /// <returns></returns>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         switch (modifier)
         {
-            case Modifier.Strong:
-                return baseValue * 1.5f;
             case Modifier.Weak:
-                return baseValue / 2;
+                return baseValue /= 2f;
+            case Modifier.Strong:
+                return baseValue *= 1.5f;
         }
 
         return baseValue;
     }
 }
 
+
 /// <summary>
-/// Enumarate the modifier can be apply
+/// Enum Modifier.
 /// </summary>
 public enum Modifier
 {
-    /// <summary>A weak modifier</summary>
+    /// <summary>Weak modifier.</summary>
     Weak,
-    /// <summary>The base modifier</summary>
+    /// <summary>Base modifier.</summary>
     Base,
-    /// <summary>A Strong modifier</summary>
+    /// <summary>Strong modifier.</summary>
     Strong
 }
 
 /// <summary>
-/// Delegation for calculate the product of modifier
+/// CalculateModifier delegate.
 /// </summary>
-/// <param name="baseValue">The base value</>
-/// <param name="modifier">The modifier apply to baseValue</param>
+/// <param name="baseValue"></param>
+/// <param name="modifier"></param>
+/// <returns>Float value.</returns>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
