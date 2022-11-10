@@ -1,29 +1,33 @@
 ﻿using System;
 
+
 /// <summary>
-/// Define a Player
+/// Player class.
 /// </summary>
 class Player
 {
-    // get or set Name of the player
+    /// <summary>Gets or sets name.</summary>
     private string name { get; set; }
-    // get or set MaxHp of the player
+
+    /// <summary>Gets or sets maxHp.</summary>
     private float maxHp { get; set; }
-    // get or set hp of the player
+
+    /// <summary>Gets or sets hp.</summary>
     private float hp { get; set; }
+
     /// <summary>Gets or sets status.</summary>
     private string status { get; set; }
 
+    /// <summary>
+    /// CalculateHealth delegate.
+    /// </summary>
+    /// <param name="value"></param>
     private delegate void CalculateHealth(float value);
 
     /// <summary>EventHandler HPCheck.</summary>
     public event EventHandler<CurrentHPArgs> HPCheck;
 
-    /// <summary>
-    /// Constructor for the player
-    /// </summary>
-    /// <param name="name">Default value is "Player"</param>
-    /// <param name="maxHp">Default value is 100f</param>
+    /// <summary>Initializes a new instance of the <see cref="Player"/> class.</summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
         if (maxHp <= 0)
@@ -31,18 +35,19 @@ class Player
             maxHp = 100f;
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
         }
-        else
-        {
-            this.maxHp = maxHp;
-        }
 
         this.name = name;
         this.maxHp = maxHp;
         this.hp = maxHp;
+
+        this.status = $"{this.name} is ready to go!";
+
+        // Calling event on CheckStatus method
+        this.HPCheck += CheckStatus;
     }
 
     /// <summary>
-    /// Print the current health of player
+    /// PrintHealth method.
     /// </summary>
     public void PrintHealth()
     {
@@ -60,7 +65,8 @@ class Player
 
         Console.WriteLine($"{this.name} takes {damage} damage!");
 
-        ValidateHP(this.hp - damage);
+        this.hp -= damage;
+        ValidateHP(this.hp);
     }
 
     /// <summary>
@@ -74,13 +80,14 @@ class Player
 
         Console.WriteLine($"{this.name} heals {heal} HP!");
 
-        ValidateHP(this.hp + heal);
+        this.hp += heal;
+        ValidateHP(this.hp);
     }
 
     /// <summary>
-    /// Validate the newHp that not be under than 0 or greater than maxHp
+    /// ValdateHP if damage or heal is too big.
     /// </summary>
-    /// <param name="newHp">The newHp calculate in TakeDamage and HealDamage</param>
+    /// <param name="newHp"></param>
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
@@ -89,6 +96,9 @@ class Player
             this.hp = this.maxHp;
         else
             this.hp = newHp;
+
+        // When ValidateHp is used, check player status
+        OnCheckStatus(new CurrentHPArgs(this.hp));
     }
 
     /// <summary>
@@ -172,10 +182,7 @@ class Player
     }
 }
 
-
-/// <summary>
-/// Enum Modifier.
-/// </summary>
+/// <summary>Enum Modifier.</summary>
 public enum Modifier
 {
     /// <summary>Weak modifier.</summary>
@@ -195,9 +202,7 @@ public enum Modifier
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 
-/// <summary>
-/// CurrentHP event.
-/// </summary>
+/// <summary>CurrentHP event.</summary>
 class CurrentHPArgs : EventArgs
 {
     /// <summary>Gets currentHp.</summary>
