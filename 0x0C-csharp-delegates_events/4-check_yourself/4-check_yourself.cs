@@ -11,8 +11,13 @@ class Player
     private float maxHp { get; set; }
     // get or set hp of the player
     private float hp { get; set; }
+    /// <summary>Gets or sets status.</summary>
+    private string status { get; set; }
 
     private delegate void CalculateHealth(float value);
+
+    /// <summary>EventHandler HPCheck.</summary>
+    public event EventHandler<CurrentHPArgs> HPCheck;
 
     /// <summary>
     /// Constructor for the player
@@ -73,6 +78,20 @@ class Player
     }
 
     /// <summary>
+    /// Validate the newHp that not be under than 0 or greater than maxHp
+    /// </summary>
+    /// <param name="newHp">The newHp calculate in TakeDamage and HealDamage</param>
+    public void ValidateHP(float newHp)
+    {
+        if (newHp < 0)
+            this.hp = 0;
+        else if (newHp > this.maxHp)
+            this.hp = this.maxHp;
+        else
+            this.hp = newHp;
+    }
+
+    /// <summary>
     /// ApplyModifier method.
     /// </summary>
     /// <param name="baseValue"></param>
@@ -117,6 +136,7 @@ class Player
         Console.WriteLine(this.status);
     }
 }
+
 
 /// <summary>
 /// Enum Modifier.
