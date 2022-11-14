@@ -1,22 +1,19 @@
 using NUnit.Framework;
 using System;
-using InventoryLibrary;
 
 namespace InventoryManagement.Tests
 {
 
     public class BaseClassTests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void TestTypeProperties()
         {
             BaseClass testBaseClass = new BaseClass();
-        }
 
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
+            Assert.IsInstanceOf(testBaseClass.id, typeof(string));
+            Assert.IsInstanceOf(testBaseClass.date_created, typeof(DateTime));
+            Assert.IsInstanceOf(testBaseClass.date_updated, typeof(DateTime));
         }
     }
 }
